@@ -1,0 +1,177 @@
+﻿  cpu.cpp
+C:\Projects\Frank\nes\cppnes\cpu.h(68,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(70,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(72,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(74,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(76,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(78,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(80,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(82,15): error C2535:  'uint8_t cpu::ABS(void)': member function already defined or declared
+C:\Projects\Frank\nes\cppnes\cpu.h(58): message :  see declaration of 'cpu::ABS'
+C:\Projects\Frank\nes\cppnes\cpu.h(284,3): error C2065:  'lookup': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(286,65): error C2039:  'IZX': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,1): error C2065:  'IZX': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(286,1): error C3867:  'cpu::XXX': non-standard syntax; use '&' to create a pointer to member
+C:\Projects\Frank\nes\cppnes\cpu.h(286,99): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,1): error C2065:  'IMP': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(286,134): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,169): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,274): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,309): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,379): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,414): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,449): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(286,554): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,30): error C2039:  'REL': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,1): error C2065:  'REL': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(287,65): error C2039:  'IZY': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,1): error C2065:  'IZY': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(287,1): error C3867:  'cpu::XXX': non-standard syntax; use '&' to create a pointer to member
+C:\Projects\Frank\nes\cppnes\cpu.h(287,99): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,1): error C2065:  'IMP': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(287,134): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,169): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,274): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,309): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,344): error C2039:  'ABY': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,1): error C2065:  'ABY': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(287,379): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,414): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,449): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,484): error C2039:  'ABX': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,1): error C2065:  'ABX': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(287,519): error C2039:  'ABX': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(287,554): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,65): error C2039:  'IZX': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,1): error C2065:  'IZX': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(288,1): error C3867:  'cpu::XXX': non-standard syntax; use '&' to create a pointer to member
+C:\Projects\Frank\nes\cppnes\cpu.h(288,99): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,1): error C2065:  'IMP': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(288,134): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,274): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,309): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,379): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,414): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(288,554): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,30): error C2039:  'REL': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,1): error C2065:  'REL': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(289,65): error C2039:  'IZY': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,1): error C2065:  'IZY': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(289,1): error C3867:  'cpu::XXX': non-standard syntax; use '&' to create a pointer to member
+C:\Projects\Frank\nes\cppnes\cpu.h(289,99): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,1): error C2065:  'IMP': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(289,134): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,169): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,274): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,309): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,344): error C2039:  'ABY': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,1): error C2065:  'ABY': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(289,379): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,414): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,449): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,484): error C2039:  'ABX': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,1): error C2065:  'ABX': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(289,519): error C2039:  'ABX': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(289,554): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,30): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,1): error C2065:  'IMP': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(290,65): error C2039:  'IZX': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,1): error C2065:  'IZX': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(290,1): error C3867:  'cpu::XXX': non-standard syntax; use '&' to create a pointer to member
+C:\Projects\Frank\nes\cppnes\cpu.h(290,99): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,134): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,169): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,274): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,309): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,379): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,414): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(290,554): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,30): error C2039:  'REL': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,1): error C2065:  'REL': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(291,65): error C2039:  'IZY': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,1): error C2065:  'IZY': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(291,1): error C3867:  'cpu::XXX': non-standard syntax; use '&' to create a pointer to member
+C:\Projects\Frank\nes\cppnes\cpu.h(291,99): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,1): error C2065:  'IMP': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(291,134): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,169): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,274): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,309): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,344): error C2039:  'ABY': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,1): error C2065:  'ABY': undeclared identifier
+C:\Projects\Frank\nes\cppnes\cpu.h(291,379): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,414): error C2039:  'IMP': is not a member of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(5): message :  see declaration of 'cpu'
+C:\Projects\Frank\nes\cppnes\cpu.h(291,1): error C1003:  error count exceeds 100; stopping compilation
