@@ -1,8 +1,0 @@
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/include/GLFW/glfw3.h
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/include/GLFW/glfw3native.h
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/lib/cmake/glfw3/glfw3Config.cmake
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/lib/cmake/glfw3/glfw3ConfigVersion.cmake
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/lib/cmake/glfw3/glfw3Targets.cmake
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/lib/cmake/glfw3/glfw3Targets-debug.cmake
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/lib/pkgconfig/glfw3.pc
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/lib/glfw3.lib

@@ -1,6 +1,0 @@
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/CMakeFiles/uninstall.dir
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/CMakeFiles/INSTALL.dir
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/CMakeFiles/ALL_BUILD.dir
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/CMakeFiles/ZERO_CHECK.dir
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/src/CMakeFiles/glfw.dir
-C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/src/CMakeFiles/INSTALL.dir
