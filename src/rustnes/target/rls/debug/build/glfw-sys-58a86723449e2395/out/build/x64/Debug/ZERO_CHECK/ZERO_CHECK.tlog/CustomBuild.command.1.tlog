@@ -1,0 +1,10 @@
+^C:\PROJECTS\NES\SRC\RUSTNES\TARGET\RLS\DEBUG\BUILD\GLFW-SYS-58A86723449E2395\OUT\BUILD\CMAKEFILES\124347F35D5694EA873914938E1D5657\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Frank/.cargo/registry/src/github.com-1ecc6299db9ec823/glfw-sys-3.3.0 -BC:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/GLFW.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

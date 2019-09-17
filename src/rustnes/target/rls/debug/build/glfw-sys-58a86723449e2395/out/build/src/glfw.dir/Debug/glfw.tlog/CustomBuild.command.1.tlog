@@ -1,0 +1,10 @@
+^C:\USERS\FRANK\.CARGO\REGISTRY\SRC\GITHUB.COM-1ECC6299DB9EC823\GLFW-SYS-3.3.0\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Frank/.cargo/registry/src/github.com-1ecc6299db9ec823/glfw-sys-3.3.0 -BC:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build --check-stamp-file C:/projects/nes/src/rustnes/target/rls/debug/build/glfw-sys-58a86723449e2395/out/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

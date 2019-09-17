@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29230.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5F39A8CC-4209-43E0-B85C-E51EAB9BBFF3}"
+	ProjectSection(SolutionItems) = preProject
+		src\bus.rs = src\bus.rs
+		src\cpu.rs = src\cpu.rs
+		src\main.rs = src\main.rs
+		src\memory.rs = src\memory.rs
+		src\nes.rs = src\nes.rs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9D36E255-8094-4530-A982-32B333EC7408}"
+	ProjectSection(SolutionItems) = preProject
+		Cargo.lock = Cargo.lock
+		Cargo.toml = Cargo.toml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C38C7DE-FDBE-47F0-86F4-5D7FDBB8BA55}
+	EndGlobalSection
+EndGlobal

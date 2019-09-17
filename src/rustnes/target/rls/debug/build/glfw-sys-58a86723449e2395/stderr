@@ -1,0 +1,8 @@
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_BUILD_TYPE
+    CMAKE_CXX_FLAGS
+    CMAKE_CXX_FLAGS_DEBUG
+
+
