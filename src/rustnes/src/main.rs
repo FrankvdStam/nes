@@ -75,43 +75,79 @@
 //use std::boxed::Box;
 //use std::borrow::BorrowMut;
 
-extern crate rand;
+//extern crate rand;
+//
+//mod app;
+//
+//use rand::Rng;
+//use app::App;
+//
+//fn main() {
+//	
+//	let mut rng = rand::thread_rng();
+//	
+//	//let num = rng.gen_range::<u32>(0, 10);
+//    
+//	
+//    let mut app = App::new(800, 600, "spinning-square");
+//
+//	loop
+//	{
+//		if rng.gen_range(0, 10) > 7
+//		{
+//			let x = rng.gen_range(0, app::NES_SCREEN_WIDTH);
+//			let y = rng.gen_range(0, app::NES_SCREEN_HEIGHT);
+//			let color: [f32; 4] = 
+//			[
+//				rng.gen::<f32>(),
+//				rng.gen::<f32>(),
+//				rng.gen::<f32>(),
+//				1.0
+//			];
+//			app.set_pixel(x, y, color);
+//		}
+//
+//		
+//
+//		//println!("Integer: {}", rng.gen_range(0, 10));
+//
+//		app.run();
+//
+//	}
+//}
 
-mod app;
 
-use rand::Rng;
-use app::App;
+extern crate minifb;
+
+use minifb::{Key, WindowOptions, Window};
+
+const WIDTH: usize = 640;
+const HEIGHT: usize = 360;
 
 fn main() {
-	
-	let mut rng = rand::thread_rng();
-	
-	//let num = rng.gen_range::<u32>(0, 10);
-    
-	
-    let mut app = App::new(800, 600, "spinning-square");
+    let mut buffer: Vec<u32> = vec![0; WIDTH * HEIGHT];
 
-	loop
-	{
-		if rng.gen_range(0, 10) > 7
+    let mut window = Window::new("Test - ESC to exit",
+                                 WIDTH,
+                                 HEIGHT,
+                                 WindowOptions::default()).unwrap_or_else(|e| {
+        panic!("{}", e);
+    });
+
+    while window.is_open() && !window.is_key_down(Key::Escape) {
+        for i in buffer.iter_mut() {
+            *i = 0; // write something more funny here!
+        }
+
+		if window.is_key_down(Key::Space)
 		{
-			let x = rng.gen_range(0, app::NES_SCREEN_WIDTH);
-			let y = rng.gen_range(0, app::NES_SCREEN_HEIGHT);
-			let color: [f32; 4] = 
-			[
-				rng.gen::<f32>(),
-				rng.gen::<f32>(),
-				rng.gen::<f32>(),
-				1.0
-			];
-			app.set_pixel(x, y, color);
+			for i in buffer.iter_mut() {
+				*i = 0x00_00_00_ff; // write something more funny here!
+				//Notation: 0xalpha_r_g_b
+			}
 		}
 
-		
-
-		//println!("Integer: {}", rng.gen_range(0, 10));
-
-		app.run();
-
-	}
+        // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
+        window.update_with_buffer(&buffer).unwrap();
+    }
 }
