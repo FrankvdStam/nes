@@ -1,5 +1,5 @@
 [package]
-name = "abaraad"
+name = "rustnes"
 version = "0.1.0"
 authors = ["Frank van der Stam <f.stam@vlastuin.nl>"]
 edition = "2018"
@@ -7,6 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+rand = "*"
 piston = "0.49.0"
 piston2d-graphics = "0.35.0"
 pistoncore-glutin_window = "0.63.0"

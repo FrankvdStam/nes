@@ -62,50 +62,56 @@
 
 
 
-extern crate piston;
-extern crate graphics;
-extern crate glutin_window;
-extern crate opengl_graphics;
+//extern crate piston;
+//extern crate graphics;
+//extern crate glutin_window;
+//extern crate opengl_graphics;
+//
+//use piston::window::WindowSettings;
+//use piston::event_loop::*;
+//use piston::input::*;
+//use glutin_window::GlutinWindow as Window;
+//use opengl_graphics::{ GlGraphics, OpenGL };
+//use std::boxed::Box;
+//use std::borrow::BorrowMut;
 
-use piston::window::WindowSettings;
-use piston::event_loop::*;
-use piston::input::*;
-use glutin_window::GlutinWindow as Window;
-use opengl_graphics::{ GlGraphics, OpenGL };
+extern crate rand;
 
 mod app;
 
+use rand::Rng;
 use app::App;
 
 fn main() {
-    // Change this to OpenGL::V2_1 if not working.
-    //let opengl = OpenGL::V3_2;
+	
+	let mut rng = rand::thread_rng();
+	
+	//let num = rng.gen_range::<u32>(0, 10);
+    
+	
+    let mut app = App::new(800, 600, "spinning-square");
 
-    // Create an Glutin window.
-    //let mut window: Window = WindowSettings::new(
-    //        "spinning-square",
-    //        [200, 200]
-    //    )
-    //    .graphics_api(opengl)
-    //    .exit_on_esc(true)
-    //    .build()
-    //    .unwrap();
-
-    // Create a new game and run it.
-    let mut app = App::new(200, 200, "spinning-square");
-
-	while true 
+	loop
 	{
-		app.run_events();
+		if rng.gen_range(0, 10) > 7
+		{
+			let x = rng.gen_range(0, app::NES_SCREEN_WIDTH);
+			let y = rng.gen_range(0, app::NES_SCREEN_HEIGHT);
+			let color: [f32; 4] = 
+			[
+				rng.gen::<f32>(),
+				rng.gen::<f32>(),
+				rng.gen::<f32>(),
+				1.0
+			];
+			app.set_pixel(x, y, color);
+		}
+
+		
+
+		//println!("Integer: {}", rng.gen_range(0, 10));
+
+		app.run();
+
 	}
-    //let mut events = Events::new(EventSettings::new());
-    //while let Some(e) = events.next(&mut window) {
-    //    if let Some(r) = e.render_args() {
-    //        app.render(&r);
-    //    }
-	//
-    //    if let Some(u) = e.update_args() {
-    //        app.update(&u);
-    //    }
-    //}
 }
