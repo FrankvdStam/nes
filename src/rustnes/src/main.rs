@@ -75,6 +75,7 @@
 //use std::boxed::Box;
 //use std::borrow::BorrowMut;
 
+//ppiston main
 //extern crate rand;
 //
 //mod app;
@@ -116,38 +117,38 @@
 //	}
 //}
 
+mod graphics;
+use ggez::conf;
+use graphics::App;
+use ggez::GameResult;
+use ggez::event;
 
-extern crate minifb;
+pub fn main()
+{	
+	run_graphics();	
+	println!("Exit.");
+}
 
-use minifb::{Key, WindowOptions, Window};
+pub fn run_graphics() -> ggez::GameResult
+{
 
-const WIDTH: usize = 640;
-const HEIGHT: usize = 360;
+	// Create a dummy window so we can get monitor scaling information
+	let hidpi_factor: f32;
+	{
+		let cb = ggez::ContextBuilder::new("", "");
+		let (_ctx, events_loop) = &mut cb.build()?;
+		println!("Hoi.");	
+		hidpi_factor = events_loop.get_primary_monitor().get_hidpi_factor() as f32;
+		println!("main hidpi_factor = {}", hidpi_factor);
+	}
 
-fn main() {
-    let mut buffer: Vec<u32> = vec![0; WIDTH * HEIGHT];
 
-    let mut window = Window::new("Test - ESC to exit",
-                                 WIDTH,
-                                 HEIGHT,
-                                 WindowOptions::default()).unwrap_or_else(|e| {
-        panic!("{}", e);
-    });
+	let cb = ggez::ContextBuilder::new("super_simple with imgui", "ggez")
+		.window_setup(conf::WindowSetup::default().title("super_simple with imgui"))
+		.window_mode(conf::WindowMode::default().dimensions(750.0, 500.0));
+	let (ref mut ctx, event_loop) = &mut cb.build().unwrap();
+	
+    let mut app = App::new(ctx, hidpi_factor);
 
-    while window.is_open() && !window.is_key_down(Key::Escape) {
-        for i in buffer.iter_mut() {
-            *i = 0; // write something more funny here!
-        }
-
-		if window.is_key_down(Key::Space)
-		{
-			for i in buffer.iter_mut() {
-				*i = 0x00_00_00_ff; // write something more funny here!
-				//Notation: 0xalpha_r_g_b
-			}
-		}
-
-        // We unwrap here as we want this code to exit if it fails. Real applications may want to handle this in a different way
-        window.update_with_buffer(&buffer).unwrap();
-    }
+	return event::run(ctx, event_loop, &mut app);
 }

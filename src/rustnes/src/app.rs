@@ -16,6 +16,10 @@ use graphics::types::Color;
 
 use std::process;
 
+use imgui::*;
+use imgui_gfx_renderer::*;
+use gfx_core::{handle::RenderTargetView, memory::Typed};
+use gfx_device_gl;
 
 const BLACK: [f32; 4] = [0.0, 0.0, 0.0, 1.0];
 const WHITE: [f32; 4] = [1.0, 1.0, 1.0, 1.0];
@@ -80,6 +84,9 @@ pub struct App {
 	window: Window,
 	events: Events,
 	
+	imgui: imgui::Context,
+	renderer: Renderer<gfx_core::format::Rgba8, gfx_device_gl::Resources>,
+
 	screen_buffer: ScreenBuffer,
 	pixel_size: u32,
 }
@@ -98,6 +105,7 @@ impl App {
         .build()
         .unwrap();
 		
+		let mut renderer = Renderer::init(&mut imgui, &mut window.factory, shaders, window.output_color).unwrap();
 
 		App
 		{
