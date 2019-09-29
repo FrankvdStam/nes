@@ -7,7 +7,8 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
-[dependencies.glfw]
-git = "https://github.com/bjz/glfw-rs.git"
-default-features = true
+rand = "*"
+glium = "0.25.0"
+imgui = "0.2.0"
+imgui-glium-renderer = "0.2.0"
+imgui-winit-support = "0.2.0"

@@ -16,7 +16,7 @@ impl Nes
 		let cpu = Cpu::new(bus);
 		let memory = Memory::new(bus);
 
-		let nes = Nes
+		Nes
 		{
 			cpu: cpu,
 			bus: bus,
