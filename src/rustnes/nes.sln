@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5F39A8CC-4209-43E0-B85C-E51EAB9BBFF3}"
 	ProjectSection(SolutionItems) = preProject
+		src\app.rs = src\app.rs
 		src\bus.rs = src\bus.rs
 		src\cpu.rs = src\cpu.rs
 		src\main.rs = src\main.rs
@@ -18,9 +19,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Cargo.toml = Cargo.toml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "graphics", "graphics", "{AD5874D9-058F-4746-A41F-09D325783B72}"
+	ProjectSection(SolutionItems) = preProject
+		src\graphics\app.rs = src\graphics\app.rs
+		src\graphics\imgui_wrapper.rs = src\graphics\imgui_wrapper.rs
+		src\graphics\mod.rs = src\graphics\mod.rs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AD5874D9-058F-4746-A41F-09D325783B72} = {5F39A8CC-4209-43E0-B85C-E51EAB9BBFF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C38C7DE-FDBE-47F0-86F4-5D7FDBB8BA55}
