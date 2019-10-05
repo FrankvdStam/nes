@@ -6,7 +6,7 @@ use glium::buffer::BufferMode;
 
 #[derive(Debug, Copy, Clone)]
 pub struct Vertex {
-    pub position: [f64; 2],
+    pub position: [f32; 2],
     pub color: [f32; 3],
 }
 
@@ -45,54 +45,49 @@ fn get_program(display: &Display) -> Program
 
 
 //Generates rectangles
-fn generate_vertices_and_indices(buffer_width: u32, buffer_height: u32, screen_width: f64, screen_height: f64, screen_x: f64, screen_y: f64) -> (Vec<Vertex>, Vec<u16>)
+fn generate_vertices_and_indices(buffer_width: u32, buffer_height: u32, screen_width: f32, screen_height: f32, screen_x: f32, screen_y: f32) -> (Vec<Vertex>, Vec<u32>)
 {
     let mut vertices: Vec<Vertex> =  Vec::with_capacity((buffer_width*buffer_height*4) as usize);
-    let mut indices: Vec<u16> =  Vec::with_capacity((buffer_width*buffer_height*6) as usize);
+    let mut indices: Vec<u32> =  Vec::with_capacity((buffer_width*buffer_height*6) as usize);
 
-    let rect_size = f64::min(screen_width / buffer_width as f64, screen_height / buffer_height as f64);
+    let rect_size = f32::min(screen_width / buffer_width as f32, screen_height / buffer_height as f32);
     let mut rng = rand::thread_rng();
 
     for x in 0..buffer_width
+    {
+        for y in 0..buffer_height
         {
-            for y in 0..buffer_height
-                {
-                    let fx = screen_x + (x as f64 * rect_size) ;
-                    let fy = screen_y - (y as f64 * rect_size) ;
+            let fx = screen_x + (x as f32 * rect_size) ;
+            let fy = screen_y - (y as f32 * rect_size) ;
 
-                    let r: f32 = rng.gen();
-                    let g: f32 = rng.gen();
-                    let b: f32 = rng.gen();
+            let color: [f32; 3] = [rng.gen(), rng.gen(), rng.gen()];
 
-                    let start_index: u16 = vertices.len() as u16;
+            let start_index: u32 = vertices.len() as u32;
 
-                    //Up left
-                    vertices.push(Vertex { position: [  fx          ,   fy          ], color: [r, g, b] } );
-                    //Up right
-                    vertices.push(Vertex { position: [  fx+rect_size,   fy          ], color: [r, g, b] } );
-                    //down left
-                    vertices.push(Vertex { position: [  fx          ,   fy-rect_size], color: [r, g, b] } );
-                    //down right
-                    vertices.push(Vertex { position: [  fx+rect_size,   fy-rect_size], color: [r, g, b] } );
+            //Up left
+            vertices.push(Vertex { position: [  fx          ,   fy          ], color } );
+            //Up right
+            vertices.push(Vertex { position: [  fx+rect_size,   fy          ], color } );
+            //down left
+            vertices.push(Vertex { position: [  fx          ,   fy-rect_size], color } );
+            //down right
+            vertices.push(Vertex { position: [  fx+rect_size,   fy-rect_size], color } );
 
 
-                    //first triangle is 0, 1, 2. Equates to start_index, start_index+1, start_index+2.
-                    //Second triangle is 3, 1, 2. Equates to start_index+3, start_index+1, start_index+2.
-                    //Next cycle, the start index will be 4.
-                    //first triangle is 4, 5, 6
-                    //second triangle is 7, 5, 6
-                    indices.push(start_index);
-                    indices.push(start_index+1);
-                    indices.push(start_index+2);
-                    indices.push(start_index+3);
-                    indices.push(start_index+1);
-                    indices.push(start_index+2);
-                }
+            //first triangle is 0, 1, 2. Equates to start_index, start_index+1, start_index+2.
+            //Second triangle is 3, 1, 2. Equates to start_index+3, start_index+1, start_index+2.
+            //Next cycle, the start index will be 4.
+            //first triangle is 4, 5, 6
+            //second triangle is 7, 5, 6
+            indices.push(start_index);
+            indices.push(start_index+1);
+            indices.push(start_index+2);
+            indices.push(start_index+3);
+            indices.push(start_index+1);
+            indices.push(start_index+2);
         }
+    }
 
-
-    //println!("{:?}", &vertices);
-    //println!("{:?}", &indices);
     println!("usize max {}", std::usize::MAX);
     println!("{} vertices and {} indices", vertices.len(), indices.len());
     return (vertices, indices);
@@ -108,17 +103,17 @@ pub struct Canvas
     pub buffer_height: u32,
 
     vertices: Vec<Vertex>,
-    indices: Vec<u16>,
+    indices: Vec<u32>,
 
     vertex_buffer: glium::VertexBuffer<Vertex>,
-    index_buffer: glium::IndexBuffer<u16>,
+    index_buffer: glium::IndexBuffer<u32>,
     program: Program,
 }
 
 
 impl Canvas
 {
-    pub fn new(display: &Display, buffer_width: u32, buffer_height: u32, screen_width: f64, screen_height: f64, screen_x: f64, screen_y: f64) -> Self
+    pub fn new(display: &Display, buffer_width: u32, buffer_height: u32, screen_width: f32, screen_height: f32, screen_x: f32, screen_y: f32) -> Self
     {
         let (vertices, indices) = generate_vertices_and_indices(buffer_width, buffer_height, screen_width, screen_height, screen_x, screen_y);
 

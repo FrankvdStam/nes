@@ -62,7 +62,7 @@ fn main() {
     let gl_window = display.gl_window();
     let window = gl_window.window();
 
-    let mut canvas = Canvas::new(&display, 150, 150, 1.0, 1.0, -0.5, 0.5);
+    let mut canvas = Canvas::new(&display, 256, 240, 1.0, 1.0, -0.5, 0.5);
     let mut rng = rand::thread_rng();
 
     let mut closed = false;
