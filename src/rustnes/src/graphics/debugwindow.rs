@@ -7,6 +7,12 @@ use std::cell::Ref;
 use std::rc::Rc;
 use glium::backend::glutin::glutin::{PossiblyCurrent, Event, ContextWrapper};
 
+#[derive(Debug, Copy, Clone)]
+pub enum DebugEvent
+{
+    SetPixel { x: u32, y: u32, color: [f32; 3] },
+}
+
 
 pub struct DebugWindow
 {
@@ -15,10 +21,6 @@ pub struct DebugWindow
     platform: WinitPlatform,
     renderer: Renderer,
     events_loop: glium::glutin::EventsLoop,
-
-    x: i32,
-    y: i32,
-    color: [f32; 3],
 }
 
 impl DebugWindow
@@ -48,10 +50,6 @@ impl DebugWindow
             renderer,
             platform,
             events_loop,
-
-            x: 0,
-            y: 0,
-            color: [0.0, 0.0, 0.0],
         }
     }
 
@@ -68,8 +66,11 @@ impl DebugWindow
         });
     }
 
-    pub fn render(&mut self)
+    pub fn render(&mut self) -> Option<DebugEvent>
     {
+
+        let mut event: Option<DebugEvent> = None;
+
         let mut frame = self.display.draw();
         frame.clear_color(0.0, 0.0, 1.0, 1.0);
 
@@ -80,33 +81,31 @@ impl DebugWindow
         self.platform.prepare_frame(io, &window).expect("Failed to start frame");
         let mut ui = self.imgui.frame();
 
-        let mut x = self.x.clone();
-        let mut y = self.y.clone();
-        let mut color = self.color.clone();
-
         Window::new(im_str!("Hello world"))
             .size([230.0, 800.0], Condition::Always)
             .position([0.0, 0.0], Condition::Always)
             .build(&ui, || {
                 let mut demo = true;
                 ui.show_demo_window(&mut demo);
+                let mut x = 0;
+                let mut y = 0;
+                let mut color: [f32; 3] = [0.0, 0.0, 0.0];
                 Slider::new(im_str!("x"), (0..=9)).build(&ui, &mut x);
                 Slider::new(im_str!("y"), (0..=9)).build(&ui, &mut y);
                 ColorPicker::new(im_str!("Color"), &mut color).build(&ui);
                 if ui.button(im_str!("Set"), [100.0,20.0])
                 {
+                    event = Some(DebugEvent::SetPixel{ x, y, color});
                     //canvas.set_color(x as u32, y as u32, color);
                     //canvas.refresh_vertex_buffer(&display);
                 }
             });
 
-        self.x = x;
-        self.y = y;
-        self.color = color;
-
         self.platform.prepare_render(&ui, &window);
         let draw_data = ui.render();
         self.renderer.render(&mut frame, draw_data).expect("Rendering failed");
         frame.finish().expect("Failed to swap buffers");
+
+        return event;
     }
 }

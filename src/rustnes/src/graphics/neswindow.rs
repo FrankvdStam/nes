@@ -6,7 +6,7 @@ use glium::buffer::BufferMode;
 
 use crate::opengl::Vertex;
 use crate::opengl::get_program;
-
+use crate::debugwindow::DebugEvent;
 
 //Generates rectangles
 fn generate_vertices_and_indices(buffer_width: u32, buffer_height: u32, screen_width: f32, screen_height: f32, screen_x: f32, screen_y: f32) -> (Vec<Vertex>, Vec<u32>)
@@ -111,11 +111,6 @@ impl NesWindow
         }
     }
 
-    pub fn draw(&self, frame: & mut Frame)
-    {
-        frame.draw(&self.vertex_buffer, &self.index_buffer, &self.program, &glium::uniforms::EmptyUniforms,&Default::default()).unwrap();
-    }
-
     pub fn set_color(& mut self, x: u32, y: u32, color: [f32; 3])
     {
         //4 vertices per nes pixel, means we need to multiply by 4 and then set all 4 pixels.
@@ -126,12 +121,12 @@ impl NesWindow
             }
     }
 
-    pub fn refresh_vertex_buffer(&mut self, display: &Display)
+    pub fn refresh_vertex_buffer(&mut self)
     {
-        self.vertex_buffer = glium::VertexBuffer::new(display, &self.vertices).unwrap();
+        self.vertex_buffer = glium::VertexBuffer::new(&self.display, &self.vertices).unwrap();
     }
 
-    pub fn update(&mut self)
+    pub fn update(&mut self, debug_event: Option<DebugEvent>)
     {
         self.events_loop.poll_events(|event| {
             //match event {
@@ -142,6 +137,22 @@ impl NesWindow
             //    _ => (),
             //}
         });
+
+        match debug_event
+        {
+            Some(event) => {
+                println!("{:?}", event);
+                match event
+                {
+                    DebugEvent::SetPixel { x, y, color } => {
+                        self.set_color(x, y, color);
+                        self.refresh_vertex_buffer();
+                    },
+                    _ => (),
+                }
+            }
+            _ => (),
+        }
     }
 
     pub fn render(&mut self)

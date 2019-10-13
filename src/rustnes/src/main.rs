@@ -29,11 +29,10 @@ fn main()
 
     while !closed
     {
-
-        nes_window.update();
-        nes_window.render();
-
         debug_window.update();
-        debug_window.render();
+        let debug_event: Option<DebugEvent> = debug_window.render();
+
+        nes_window.update(debug_event);
+        nes_window.render();
     }
 }
