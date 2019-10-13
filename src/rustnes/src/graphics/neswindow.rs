@@ -4,44 +4,8 @@ use glium::{Surface, VertexBuffer, Display, Frame, Program};
 use glium::backend::Facade;
 use glium::buffer::BufferMode;
 
-#[derive(Debug, Copy, Clone)]
-pub struct Vertex {
-    pub position: [f32; 2],
-    pub color: [f32; 3],
-}
-
-implement_vertex!(Vertex, position, color);
-
-//Get simple shaders with color and position
-fn get_program(display: &Display) -> Program
-{
-    let vertex_shader_src = r#"
-    #version 140
-
-	out vec3 mcolor;
-	in vec3 color;
-
-    in vec2 position;
-
-    void main() {
-		mcolor = color;
-        gl_Position = vec4(position, 0.0, 1.0);
-    }
-"#;
-
-    let fragment_shader_src = r#"
-    #version 140
-
-	in vec3 mcolor;
-    out vec4 Vcolor;
-
-    void main() {
-        Vcolor = vec4(mcolor, 1.0);
-    }
-"#;
-
-    return glium::Program::from_source(display, vertex_shader_src, fragment_shader_src, None).unwrap();
-}
+use crate::opengl::Vertex;
+use crate::opengl::get_program;
 
 
 //Generates rectangles
@@ -96,9 +60,12 @@ fn generate_vertices_and_indices(buffer_width: u32, buffer_height: u32, screen_w
 
 
 //Holds all the data to render NES pixels, with a nice wrapper to set colors so that you don't have to dig into vertices manually.
-#[derive(Debug)]
-pub struct Canvas
+pub struct NesWindow
 {
+    //glium/opengl related
+    display: glium::Display,
+    events_loop: glium::glutin::EventsLoop,
+
     pub buffer_width:  u32,
     pub buffer_height: u32,
 
@@ -111,28 +78,37 @@ pub struct Canvas
 }
 
 
-impl Canvas
+impl NesWindow
 {
-    pub fn new(display: &Display, buffer_width: u32, buffer_height: u32, screen_width: f32, screen_height: f32, screen_x: f32, screen_y: f32) -> Self
+    pub fn new(buffer_width: u32, buffer_height: u32, screen_width: f32, screen_height: f32, screen_x: f32, screen_y: f32) -> Self
     {
+        //Setup window,
+        let mut events_loop = glium::glutin::EventsLoop::new();
+        let window_builder = glium::glutin::WindowBuilder::new();
+        let context_builder = glium::glutin::ContextBuilder::new();
+        let display = glium::Display::new(window_builder, context_builder, &events_loop).unwrap();
+
         let (vertices, indices) = generate_vertices_and_indices(buffer_width, buffer_height, screen_width, screen_height, screen_x, screen_y);
 
-        let vertex_buffer = glium::VertexBuffer::new(display, &vertices).unwrap();
-        let index_buffer = glium::IndexBuffer::new(display,PrimitiveType::TrianglesList, &indices).unwrap();
-        let program = get_program(display);
+        let vertex_buffer = glium::VertexBuffer::new(&display, &vertices).unwrap();
+        let index_buffer = glium::IndexBuffer::new(&display,PrimitiveType::TrianglesList, &indices).unwrap();
+        let program = get_program(&display);
 
-        Canvas
-            {
-                buffer_width,
-                buffer_height,
+        NesWindow
+        {
+            display,
+            events_loop,
 
-                vertices,
-                indices,
+            buffer_width,
+            buffer_height,
 
-                vertex_buffer,
-                index_buffer,
-                program,
-            }
+            vertices,
+            indices,
+
+            vertex_buffer,
+            index_buffer,
+            program,
+        }
     }
 
     pub fn draw(&self, frame: & mut Frame)
@@ -153,5 +129,26 @@ impl Canvas
     pub fn refresh_vertex_buffer(&mut self, display: &Display)
     {
         self.vertex_buffer = glium::VertexBuffer::new(display, &self.vertices).unwrap();
+    }
+
+    pub fn update(&mut self)
+    {
+        self.events_loop.poll_events(|event| {
+            //match event {
+            //    glutin::Event::WindowEvent { event, .. } => match event {
+            //        glutin::WindowEvent::CloseRequested => closed = true,
+            //        _ => (),
+            //    },
+            //    _ => (),
+            //}
+        });
+    }
+
+    pub fn render(&mut self)
+    {
+        let mut frame = self.display.draw();
+        frame.clear_color(0.0, 0.0, 1.0, 1.0);
+        frame.draw(&self.vertex_buffer, &self.index_buffer, &self.program, &glium::uniforms::EmptyUniforms,&Default::default()).unwrap();
+        frame.finish().expect("Failed to swap buffers");
     }
 }

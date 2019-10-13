@@ -3,25 +3,18 @@ use imgui::*;
 use imgui_glium_renderer::Renderer;
 use imgui_winit_support::{HiDpiMode, WinitPlatform};
 
-
 use std::cell::Ref;
 use std::rc::Rc;
 use glium::backend::glutin::glutin::{PossiblyCurrent, Event, ContextWrapper};
-//pub extern crate glium::takeable_option;
-//pub use glium::takeable_option;
 
-//pub use glium::takeable_option as glium_takeable_option;
 
 pub struct DebugWindow
 {
-    pub imgui: imgui::Context,
-    pub display: glium::Display,
+    imgui: imgui::Context,
+    display: glium::Display,
     platform: WinitPlatform,
     renderer: Renderer,
-
-    //gl_window: Ref<&'static Takeable<ContextWrapper<PossiblyCurrent, Window>>>,
-    //gl_window:  Ref<&'static u16>,
-    //window: &'static glutin::Window,
+    events_loop: glium::glutin::EventsLoop,
 
     x: i32,
     y: i32,
@@ -30,14 +23,12 @@ pub struct DebugWindow
 
 impl DebugWindow
 {
-    pub fn new(events_loop: &glium::glutin::EventsLoop) -> Self
+    pub fn new() -> Self
     {
-        let b2: Ref<u32>;
-
-
+        let mut events_loop = glium::glutin::EventsLoop::new();
         let window_builder = glium::glutin::WindowBuilder::new();
         let context_builder = glium::glutin::ContextBuilder::new();
-        let display = glium::Display::new(window_builder, context_builder, events_loop).unwrap();
+        let display = glium::Display::new(window_builder, context_builder, &events_loop).unwrap();
 
         let mut imgui = Context::create();
         imgui.set_ini_filename(None);
@@ -50,19 +41,13 @@ impl DebugWindow
         imgui.io_mut().font_global_scale = (1.0 / platform.hidpi_factor()) as f32;
         let mut renderer = Renderer::init(&mut imgui, &display).expect("Failed to initialize renderer");
 
-        //Ref<'_, takeable_option::Takeable<glium::glutin::ContextWrapper<glium::glutin::PossiblyCurrent, glium::glutin::Window>>>
-        //let gl_window: Ref<glium_takeable_option::Takeable<ContextWrapper<PossiblyCurrent, Window>>> = display.gl_window();
-        //let window = gl_window.window();
-
         DebugWindow
         {
             imgui,
             display,
             renderer,
             platform,
-
-            //gl_window,
-            //window,
+            events_loop,
 
             x: 0,
             y: 0,
@@ -70,13 +55,24 @@ impl DebugWindow
         }
     }
 
-    pub fn handle_events(&mut self, event: &Event)
+    pub fn update(&mut self)
     {
-        self.platform.handle_event(self.imgui.io_mut(), self.display.gl_window().window(), &event);
+        let gl_window = self.display.gl_window();
+        let window = gl_window.window();
+        let platform = &mut self.platform;
+        let io_mut = self.imgui.io_mut();
+
+        self.events_loop.poll_events(|event|
+        {
+            platform.handle_event(io_mut, &window, &event);
+        });
     }
 
-    pub fn render(&mut self, frame: &mut glium::Frame)
+    pub fn render(&mut self)
     {
+        let mut frame = self.display.draw();
+        frame.clear_color(0.0, 0.0, 1.0, 1.0);
+
         let gl_window = self.display.gl_window();
         let window = gl_window.window();
 
@@ -87,8 +83,6 @@ impl DebugWindow
         let mut x = self.x.clone();
         let mut y = self.y.clone();
         let mut color = self.color.clone();
-
-
 
         Window::new(im_str!("Hello world"))
             .size([230.0, 800.0], Condition::Always)
@@ -111,16 +105,8 @@ impl DebugWindow
         self.color = color;
 
         self.platform.prepare_render(&ui, &window);
-
         let draw_data = ui.render();
-        println!("rendering");
-        self.renderer.render(frame, draw_data).expect("Rendering failed");
+        self.renderer.render(&mut frame, draw_data).expect("Rendering failed");
+        frame.finish().expect("Failed to swap buffers");
     }
-
-    //pub fn window(&self) -> &glium::glutin::Window
-    //{
-    //    let thing1: Ref<Takeable<glutin::WindowedContext<Pc>>> = self.display.gl_window();
-    //    let thing: &'static glium::glutin::Window = self.display.gl_window().window();
-    //    return thing;
-    //}
 }

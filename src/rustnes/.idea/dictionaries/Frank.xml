@@ -3,6 +3,9 @@
     <words>
       <w>debugwindow</w>
       <w>imgui</w>
+      <w>nesdisplay</w>
+      <w>neswindow</w>
+      <w>opengl</w>
     </words>
   </dictionary>
 </component>
