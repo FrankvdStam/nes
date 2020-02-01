@@ -82,6 +82,14 @@ impl DebugWindow
         self.events_loop.poll_events(|event|
         {
             platform.handle_event(io_mut, &window, &event);
+
+            match event {
+                glutin::Event::WindowEvent { event, .. } => match event {
+                    glutin::WindowEvent::CloseRequested => (),
+                    _ => (),
+                },
+                _ => (),
+            }
         });
     }
 
